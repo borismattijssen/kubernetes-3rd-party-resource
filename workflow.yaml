@@ -1,0 +1,9 @@
+apiVersion: nerdalize.com/v1alpha1
+kind: Workflow
+metadata:
+  name: test-workflow
+spec:
+  steps:
+  - name: step-a
+  - name: step-b
+    dependsOn: step-a
