@@ -21,6 +21,12 @@ Adding new `Workflow`s can now easily be done using `kubectl`:
 ```
 Note that apiVersion should be specified as `<api-group>/<version>` and kind is `Workflow`.
 
+If this command doesn't work (because we're using kubernetes alpha) you can directly post it to the API REST server using curl:
+```
+cat workflow.json | curl --data "@-" -H "Content-Type:application/json" http://localhost:8080/apis/nerdalize.com/v1alpha1/namespaces/default/workflows
+```
+Note: workflow.json is workflow.yaml converted to JSON.
+
 ## More information
 Note that at the time of writing most of this functionality is only supported by Kubernetes 1.3.0alpha.
 
